@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agentes de viajes expertos. Planifica tus viajes con asesoría profesional y experiencias únicas.">
+    <meta name="keywords" content="viajes, turismo, reservaciones, experiencias exclusivas, destinos">
+    <meta name="author" content="Agentes de Viajes Expertos">
+    <title>Agentes de Viajes Expertos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="aos/aos.css">
+    <script defer src="aos/aos.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Agentes de Viajes Expertos</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h2 data-aos="fade-up">Planifica tus viajes con expertos</h2>
+        <p data-aos="fade-up" data-aos-delay="200">Ofrecemos asesoría y experiencias de viaje únicas.</p>
+        <a href="#contacto" class="btn" data-aos="zoom-in">Contáctanos</a>
+    </section>
+
+    <section id="servicios">
+        <h2 data-aos="fade-right">Nuestros Servicios</h2>
+        <div class="servicios-grid">
+            <div class="servicio" data-aos="flip-left">
+                <h3>Reservaciones</h3>
+                <p>Gestionamos vuelos, hoteles y transporte.</p>
+            </div>
+            <div class="servicio" data-aos="flip-left" data-aos-delay="200">
+                <h3>Experiencias Exclusivas</h3>
+                <p>Acceso a tours personalizados.</p>
+            </div>
+            <div class="servicio" data-aos="flip-left" data-aos-delay="400">
+                <h3>Asesoría Profesional</h3>
+                <p>Te ayudamos a elegir el mejor destino.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="destinos">
+        <h2 data-aos="fade-left">Destinos Populares</h2>
+        <div class="destinos-grid">
+            <div class="destino" data-aos="zoom-in">
+                <h3>Cancún</h3>
+            </div>
+            <div class="destino" data-aos="zoom-in" data-aos-delay="200">
+                <h3>París</h3>
+            </div>
+            <div class="destino" data-aos="zoom-in" data-aos-delay="400">
+                <h3>Dubai</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2 data-aos="fade-up">Contáctanos</h2>
+        <form action="contact.php" method="POST">
+            <input type="text" name="nombre" placeholder="Tu Nombre" required>
+            <input type="email" name="email" placeholder="Tu Correo" required>
+            <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Agentes de Viajes Expertos</p>
+    </footer>
+
+    <a href="https://wa.me/529999999999" class="whatsapp" target="_blank">WhatsApp</a>
+</body>
+</html>
