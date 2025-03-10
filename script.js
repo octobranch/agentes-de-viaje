@@ -1,7 +1,5 @@
-'use strict';
-
 document.addEventListener('DOMContentLoaded', () => {
-  // Configuración AOS
+  // Inicialización AOS
   AOS.init({
     duration: 1000,
     once: true,
@@ -9,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
   });
 
-  // Scroll suave mejorado
+  // Scroll suave
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -23,28 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hover effects interactivos
-  document.querySelectorAll('.servicio, .destino').forEach(card => {
+  // Efectos hover tarjetas
+  document.querySelectorAll('.destination-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       card.style.transform = `
         perspective(1000px)
-        rotateX(${(y - rect.height/2) / 20}deg)
-        rotateY(${-(x - rect.width/2) / 20}deg)
+        rotateX(${(y - rect.height/2) / 15}deg)
+        rotateY(${-(x - rect.width/2) / 15}deg)
+        scale(1.02)
       `;
     });
 
     card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
     });
-  });
-
-  // Efecto de carga progresiva
-  window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-    const loader = document.querySelector('.loader');
-    if(loader) loader.remove();
   });
 });
