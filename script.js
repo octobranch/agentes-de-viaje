@@ -1,93 +1,65 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
   const config = {
     AOS: {
-      duration: 800,
+      duration: 1000,
       once: true,
-      offset: 120,
+      mirror: false,
       disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
     },
-    formSelector: '#contactForm',
-    messageTimeout: 5000
+    scrollOffset: 100
   };
 
-  // Inicialización controlada
   function init() {
     try {
-      initializeAOS();
-      setupSmoothScrolling();
-      setupFormValidation();
-      setupAccessibility();
-    } catch (error) {
-      console.error('Error de inicialización:', error);
-    }
-  }
-
-  function initializeAOS() {
-    if (typeof AOS !== 'undefined') {
-      AOS.init(config.AOS);
-    } else {
-      console.warn('AOS no está cargado');
-    }
-  }
-
-  function setupSmoothScrolling() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  }
-
-  function setupFormValidation() {
-    const form = document.querySelector(config.formSelector);
-    if (!form) return;
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      
-      try {
-        // Aquí iría la llamada a tu backend
-        await fetch(form.action, {
-          method: 'POST',
-          body: formData
+      // Inicializar animaciones
+      if (typeof AOS !== 'undefined') {
+        AOS.init(config.AOS);
+        document.addEventListener('aos:in', ({ detail }) => {
+          console.debug('Animación iniciada:', detail);
         });
-        
-        showFormMessage('Mensaje enviado correctamente', 'success');
-        form.reset();
-      } catch (error) {
-        showFormMessage('Error al enviar el mensaje', 'error');
       }
-    });
+
+      // Scroll suave mejorado
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - config.scrollOffset,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Efecto hover en tarjetas
+      document.querySelectorAll('.servicio, .destino').forEach(card => {
+        card.addEventListener('mouseover', () => {
+          card.style.transform = 'translateY(-10px)';
+        });
+        card.addEventListener('mouseout', () => {
+          card.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Efecto de carga inicial
+      window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+        console.log('Recursos completamente cargados');
+      });
+
+    } catch (error) {
+      console.error('Error inicializando:', error);
+    }
   }
 
-  function showFormMessage(message, type) {
-    const messageElement = document.getElementById('formMessage');
-    messageElement.textContent = message;
-    messageElement.className = `form-message ${type}`;
-    
-    setTimeout(() => {
-      messageElement.textContent = '';
-      messageElement.className = 'form-message';
-    }, config.messageTimeout);
+  // Iniciar cuando el DOM esté listo
+  if (document.readyState !== 'loading') {
+    init();
+  } else {
+    document.addEventListener('DOMContentLoaded', init);
   }
-
-  function setupAccessibility() {
-    // Mejoras de accesibilidad
-    document.querySelectorAll('img').forEach(img => {
-      if (!img.alt) img.alt = 'Imagen decorativa';
-    });
-  }
-
-  // Iniciar la aplicación
-  init();
-});
+})();
