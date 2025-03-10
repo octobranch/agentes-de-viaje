@@ -1,17 +1,15 @@
 :root {
-  --primary-color: #2a9d8f;      /* Turquesa premium */
-  --secondary-color: #e9c46a;   /* Arena dorada */
-  --accent-color: #e76f51;      /* Coral vibrante */
-  --dark-bg: #264653;           /* Azul marino */
-  --light-bg: #f8f9fa;          /* Fondo niebla */
-  --text-light: #ffffff;        
-  --text-dark: #2b2d42;         
-  --wave-color: rgba(42, 157, 143, 0.1);
+  --primary: #2a9d8f;          /* Turquesa vibrante */
+  --secondary: #e9c46a;        /* Dorado arena */
+  --accent: #e76f51;           /* Coral intenso */
+  --dark: #264653;             /* Azul marino */
+  --light: #f8f9fa;            /* Fondo claro */
+  --text: #2b2d42;             /* Texto principal */
   --shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.2);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  --border-radius: 16px;
 }
 
+/* Reset y Base */
 * {
   margin: 0;
   padding: 0;
@@ -26,102 +24,149 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.7;
-  background: linear-gradient(180deg, var(--light-bg) 0%, var(--wave-color) 100%);
-  color: var(--text-dark);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--light) 0%, rgba(233, 196, 106, 0.05) 100%);
 }
 
-/* Tipografía premium */
-h1, h2, h3 {
+/* Componentes reutilizables */
+.section {
+  padding: 6rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
   font-family: 'Playfair Display', serif;
-  font-weight: 700;
-}
-
-h1 {
-  font-size: 2.8rem;
-  letter-spacing: -0.5px;
-}
-
-h2 {
-  font-size: 2.6rem;
-  margin: 4rem 0;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
   position: relative;
 }
 
-h2::after {
+.section-title::after {
   content: '';
   position: absolute;
-  bottom: -1rem;
+  bottom: -1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
+  width: 100px;
   height: 3px;
-  background: var(--accent-color);
+  background: var(--accent);
 }
 
-.hero-content h2 {
-  font-size: 4rem;
-  line-height: 1.1;
-  margin-bottom: 2rem;
-}
-
-/* Header estilizado */
-header {
+/* Header */
+.header {
   background: rgba(38, 70, 83, 0.95);
   backdrop-filter: blur(10px);
   padding: 1rem 2rem;
-  border-bottom: 2px solid var(--secondary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid var(--secondary);
 }
 
-nav a {
-  font-weight: 500;
-  transition: transform 0.3s, box-shadow 0.3s;
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: var(--light);
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
-nav a:hover {
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--light);
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  background: var(--primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(233, 196, 106, 0.3);
 }
 
-/* Hero section mejorada */
+/* Hero Section */
 .hero {
+  position: relative;
   min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(145deg, rgba(42, 157, 143, 0.9), rgba(233, 196, 106, 0.85)),
-    url('https://source.unsplash.com/1920x1080/?luxury-beach') center/cover;
+    url('https://source.unsplash.com/1920x1080/?luxury-beach-resort') center/cover;
 }
 
-.wave {
-  height: 150px;
-  animation: wave 15s linear infinite;
+.hero-content {
+  text-align: center;
+  color: var(--light);
+  max-width: 800px;
+  padding: 2rem;
 }
 
-/* Tarjetas de destinos premium */
-.destino {
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  transition: transform 0.4s, box-shadow 0.4s;
-  background: var(--text-light);
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.destino:hover {
-  transform: translateY(-10px);
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--accent);
+  color: var(--light);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
   box-shadow: var(--shadow);
 }
 
-.destino-img {
-  height: 320px;
-  position: relative;
+/* Destinos */
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-.overlay {
+.destination-card {
+  background: var(--light);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.destination-card:hover {
+  transform: translateY(-10px);
+}
+
+.destination-image {
+  height: 350px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.destination-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.8));
+  background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.8));
 }
 
-.rating {
+.destination-rating {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -129,78 +174,48 @@ nav a:hover {
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-weight: 700;
-  color: var(--accent-color);
+  color: var(--accent);
 }
 
-.destino-info {
-  padding: 2rem;
-}
-
-.highlights {
-  margin: 1.5rem 0;
-  padding-left: 1.5rem;
-  border-left: 3px solid var(--primary-color);
-}
-
-.price {
-  font-size: 1.4rem;
-  color: var(--accent-color);
-  font-weight: 700;
-  margin-top: 1.5rem;
-}
-
-/* Botón WhatsApp premium */
-.whatsapp {
-  background: var(--primary-color);
+/* WhatsApp Float */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--primary);
   width: 64px;
   height: 64px;
-  box-shadow: 0 8px 24px rgba(42, 157, 143, 0.3);
-  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  z-index: 1000;
 }
 
-.whatsapp:hover {
+.whatsapp-float:hover {
+  background: var(--accent);
   transform: scale(1.1) rotate(12deg);
-  background: var(--accent-color);
 }
 
-.whatsapp img {
+.whatsapp-float img {
   width: 32px;
   height: 32px;
 }
 
-/* Formulario de lujo */
-.contacto-wrapper {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  border: 2px solid var(--secondary-color);
-}
-
-.form-group {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-/* Animaciones y transiciones */
-[data-aos] {
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-
+/* Media Queries */
 @media (max-width: 768px) {
   html {
     font-size: 14px;
   }
   
-  .hero-content h2 {
-    font-size: 2.8rem;
+  .hero-title {
+    font-size: 2.5rem;
   }
   
-  .destino-img {
-    height: 250px;
+  .main-nav ul {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
-}
-
-@keyframes wave {
-  0% { background-position-x: 0; }
-  100% { background-position-x: 100vw; }
 }
