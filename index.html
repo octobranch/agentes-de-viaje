@@ -1,108 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Harmonia Tours - Experiencias exclusivas en destinos paradisíacos">
-    <meta name="keywords" content="viajes de lujo, destinos playeros, turismo premium, experiencias exclusivas">
-    <meta name="author" content="Harmonia Tours">
-    <title>Harmonia Tours - Viajes Premium</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <script defer src="script.js"></script>
+    <!-- Metadatos actualizados -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline'">
+    <!-- Resto del head... -->
+    
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js?render=TU_SITE_KEY"></script>
 </head>
 <body>
-    <header class="header">
-        <h1 class="logo">🌴 Harmonia Tours</h1>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#inicio" class="nav-link">Inicio</a></li>
-                <li><a href="#experiencias" class="nav-link">Experiencias</a></li>
-                <li><a href="#destinos" class="nav-link">Destinos</a></li>
-                <li><a href="#contacto" class="nav-link">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="inicio" class="hero">
-            <div class="hero-content" data-aos="fade-up">
-                <h2 class="hero-title">Donde el lujo encuentra el mar</h2>
-                <p class="hero-subtitle">Crea recuerdos inolvidables en los destinos más exclusivos</p>
-                <a href="#destinos" class="cta-button">Descubrir Destinos</a>
-            </div>
-            <div class="wave-animation"></div>
-        </section>
-
-        <section id="experiencias" class="section experiences">
-            <h2 class="section-title" data-aos="fade-right">Experiencias Únicas</h2>
-            <div class="experience-grid">
-                <article class="experience-card" data-aos="flip-left">
-                    <img src="https://source.unsplash.com/800x600/?private-villa" alt="Villa Privada" class="card-image">
-                    <div class="card-content">
-                        <h3>Villas Exclusivas</h3>
-                        <ul class="benefits-list">
-                            <li>✅ Servicio de concierge 24/7</li>
-                            <li>✅ Acceso a playas privadas</li>
-                            <li>✅ Chef personalizado</li>
-                        </ul>
-                    </div>
-                </article>
-                <!-- Repetir para otras experiencias -->
-            </div>
-        </section>
-
-        <section id="destinos" class="section destinations">
-            <h2 class="section-title" data-aos="fade-left">Destinos Estrella</h2>
-            <div class="destination-grid">
-                <article class="destination-card" data-aos="zoom-in">
-                    <div class="destination-image" style="background-image: url('https://source.unsplash.com/800x600/?maldives')">
-                        <div class="destination-overlay"></div>
-                        <span class="destination-rating">⭐ 4.9</span>
-                    </div>
-                    <div class="destination-info">
-                        <h3>Maldivas</h3>
-                        <div class="destination-details">
-                            <p class="destination-highlight">🏝️ 7 noches en overwater bungalow</p>
-                            <p class="destination-price">Desde €12,900</p>
-                        </div>
-                    </div>
-                </article>
-                <!-- Repetir para otros destinos -->
-            </div>
-        </section>
-
-        <section id="contacto" class="section contact">
-            <div class="contact-wrapper" data-aos="fade-up">
-                <h2 class="section-title">Planifica tu viaje</h2>
-                <form class="contact-form" action="contact.php" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="nombre" placeholder="Nombre completo" required>
-                        <input type="email" name="email" placeholder="Correo electrónico" required>
-                    </div>
-                    <textarea name="mensaje" placeholder="Describe tu viaje ideal..." rows="5" required></textarea>
-                    <button type="submit" class="submit-button">Enviar consulta</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <p class="copyright">© 2024 Harmonia Tours. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="#" class="social-icon">📱</a>
-                <a href="#" class="social-icon">📷</a>
-                <a href="#" class="social-icon">✈️</a>
-            </div>
-        </div>
+    <!-- Formulario actualizado -->
+    <form class="contact-form" action="contact.php" method="POST">
+        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+        <!-- Campos del formulario... -->
+    </form>
+    
+    <!-- Footer actualizado -->
+    <footer>
+        <a href="privacidad.html">Política de Privacidad</a>
+        <a href="terminos.html">Términos de Servicio</a>
     </footer>
-
-    <a href="https://wa.me/+529981901967" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-        <img src="assets/images/whatsapp-icon.svg" alt="Contactar por WhatsApp">
-    </a>
 </body>
 </html>
