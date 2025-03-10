@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Error en el envío | Harmonia Tours</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main class="error-page">
+        <h1>⚠️ Lo sentimos</h1>
+        <p id="error-message"></p>
+        <a href="contacto" class="btn">Intentar nuevamente</a>
+    </main>
+    <script>
+        const errorMessages = {
+            'spam': 'Nuestro sistema ha detectado actividad sospechosa.',
+            'servidor': 'Error temporal en el servidor. Por favor intenta más tarde.'
+        };
+        
+        const params = new URLSearchParams(window.location.search);
+        const codigo = params.get('codigo');
+        document.getElementById('error-message').textContent = errorMessages[codigo] || 'Error desconocido';
+    </script>
+</body>
+</html>
