@@ -1,65 +1,50 @@
 'use strict';
 
-(function () {
-  const config = {
-    AOS: {
-      duration: 1000,
-      once: true,
-      mirror: false,
-      disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    },
-    scrollOffset: 100
-  };
+document.addEventListener('DOMContentLoaded', () => {
+  // Configuración AOS
+  AOS.init({
+    duration: 1000,
+    once: true,
+    mirror: false,
+    disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  });
 
-  function init() {
-    try {
-      // Inicializar animaciones
-      if (typeof AOS !== 'undefined') {
-        AOS.init(config.AOS);
-        document.addEventListener('aos:in', ({ detail }) => {
-          console.debug('Animación iniciada:', detail);
+  // Scroll suave mejorado
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 100,
+          behavior: 'smooth'
         });
       }
+    });
+  });
 
-      // Scroll suave mejorado
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            window.scrollTo({
-              top: target.offsetTop - config.scrollOffset,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
+  // Hover effects interactivos
+  document.querySelectorAll('.servicio, .destino').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.transform = `
+        perspective(1000px)
+        rotateX(${(y - rect.height/2) / 20}deg)
+        rotateY(${-(x - rect.width/2) / 20}deg)
+      `;
+    });
 
-      // Efecto hover en tarjetas
-      document.querySelectorAll('.servicio, .destino').forEach(card => {
-        card.addEventListener('mouseover', () => {
-          card.style.transform = 'translateY(-10px)';
-        });
-        card.addEventListener('mouseout', () => {
-          card.style.transform = 'translateY(0)';
-        });
-      });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    });
+  });
 
-      // Efecto de carga inicial
-      window.addEventListener('load', () => {
-        document.body.classList.add('loaded');
-        console.log('Recursos completamente cargados');
-      });
-
-    } catch (error) {
-      console.error('Error inicializando:', error);
-    }
-  }
-
-  // Iniciar cuando el DOM esté listo
-  if (document.readyState !== 'loading') {
-    init();
-  } else {
-    document.addEventListener('DOMContentLoaded', init);
-  }
-})();
+  // Efecto de carga progresiva
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+    const loader = document.querySelector('.loader');
+    if(loader) loader.remove();
+  });
+});
