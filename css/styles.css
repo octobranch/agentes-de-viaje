@@ -1,0 +1,96 @@
+:root {
+    --primary: #2a9d8f;
+    --secondary: #e9c46a;
+    --accent: #e76f51;
+    --dark: #264653;
+    --light: #f8f9fa;
+    --text: #2b2d42;
+    --shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.2);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset y Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: linear-gradient(180deg, var(--light) 0%, rgba(233, 196, 106, 0.05) 100%);
+}
+
+.header {
+    background: rgba(38, 70, 83, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--secondary);
+}
+
+nav ul li a {
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Botón de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--primary);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.whatsapp-float:hover {
+    background: var(--accent);
+    transform: scale(1.1) rotate(12deg);
+}
+
+/* Estilos móviles */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1001;
+    }
+    
+    nav ul {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 68, 204, 0.98);
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+}
