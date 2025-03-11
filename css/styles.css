@@ -121,7 +121,7 @@ ul li::before {
 
 /* Contact Form */
 .contact-form {
-    background: #fff; /* Fondo blanco para mejor visibilidad */
+    background: #fff;
     padding: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
@@ -140,17 +140,17 @@ ul li::before {
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 6px;
-    border: 1px solid #ddd; /* Borde gris claro */
+    border: 1px solid #ddd;
     font-size: 1rem;
-    color: #333; /* Texto oscuro */
-    background: #f9f9f9; /* Fondo gris claro */
+    color: #333;
+    background: #f9f9f9;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: #16a085; /* Verde cuando el campo está enfocado */
-    box-shadow: 0 0 10px rgba(22, 160, 133, 0.2); /* Sombra sutil al enfocar */
+    border-color: #16a085;
+    box-shadow: 0 0 10px rgba(22, 160, 133, 0.2);
 }
 
 .submit-button {
@@ -162,7 +162,7 @@ ul li::before {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    text-transform: uppercase; /* Texto en mayúsculas */
+    text-transform: uppercase;
 }
 
 .submit-button:hover {
@@ -171,7 +171,7 @@ ul li::before {
 
 /* Fondo de la sección de contacto */
 .contact {
-    background-color: #f4f4f4; /* Fondo gris suave para la sección de contacto */
+    background-color: #f4f4f4;
     padding-top: 60px;
     padding-bottom: 60px;
 }
