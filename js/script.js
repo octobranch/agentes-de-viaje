@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (target) {
                 e.preventDefault();
                 window.scrollTo({
-                    top: target.offsetTop - 100, // Ajuste para asegurar que el contenido esté bien visible
+                    top: target.offsetTop - 50, // Ajuste para la cabecera fija
                     behavior: 'smooth'
                 });
             }
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Manejo global de errores en consola con mayor contexto
     window.onerror = (message, source, lineno, colno, error) => {
         console.error(`Error detectado: ${message}\nUbicación: ${source}:${lineno}:${colno}\nError: ${error}`);
-        return true; // Previene el comportamiento por defecto
+        return true;
     };
 
     // Función de alerta discreta para mostrar mensajes importantes sin interrumpir
