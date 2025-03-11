@@ -1,8 +1,5 @@
-// script.js - Versión final
-'use strict';
-
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Inicialización de AOS
+    // Inicialización AOS
     AOS.init({
         duration: 1000,
         once: true,
@@ -10,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
     });
 
-    // 2. Scroll suave mejorado
+    // Scroll suave
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -24,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Efectos 3D en tarjetas
-    document.querySelectorAll('.destination-card').forEach(card => {
+    // Efectos 3D en tarjetas
+    const apply3DEffect = (card) => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -41,31 +38,30 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
         });
-    });
+    };
 
-    // 4. Validación de formulario en tiempo real
+    document.querySelectorAll('.destination-card').forEach(apply3DEffect);
+
+    // Validación de formulario
     const form = document.querySelector('.contact-form');
     if(form) {
         form.addEventListener('submit', function(e) {
             const email = document.querySelector('[name="email"]').value;
             const nombre = document.querySelector('[name="nombre"]').value;
-            
-            // Validación básica de email
+            const mensaje = document.querySelector('[name="mensaje"]').value;
+
             if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 e.preventDefault();
                 alert('Por favor ingresa un email válido');
                 return;
             }
-            
-            // Validación de nombre
+
             if(nombre.trim() === '') {
                 e.preventDefault();
                 alert('El campo nombre es requerido');
                 return;
             }
-            
-            // Validación de mensaje
-            const mensaje = document.querySelector('[name="mensaje"]').value;
+
             if(mensaje.trim().length < 20) {
                 e.preventDefault();
                 alert('El mensaje debe tener al menos 20 caracteres');
@@ -74,30 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Carga progresiva de imágenes
-    const lazyLoad = () => {
-        const lazyImages = document.querySelectorAll('img[data-src]');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    observer.unobserve(img);
-                }
-            });
-        }, {
-            rootMargin: '200px 0px'
+    // Lazy Load
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const imgObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imgObserver.unobserve(img);
+            }
         });
+    }, { rootMargin: '200px 0px' });
 
-        lazyImages.forEach(img => observer.observe(img));
-    };
-    
-    lazyLoad();
+    lazyImages.forEach(img => imgObserver.observe(img));
 });
 
-// 6. Manejo de errores global
+// Manejo de errores global
 window.onerror = function(message, source, lineno, colno, error) {
     console.error(`Error: ${message} en ${source}:${lineno}`);
     return true;
