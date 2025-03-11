@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Harmonia Tours - Viajes Premium a Destinos Exclusivos. Vive una experiencia única con traslados de lujo, actividades personalizadas y destinos exclusivos en Cancún, Los Cabos y Puerto Vallarta.">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline'">
-    <title>Harmonia Tours - Experiencias Premium a Destinos Exclusivos</title>
+    <meta name="description" content="Harmonia Tours - Viajes Premium a Destinos Exclusivos.">
+    <title>Harmonia Tours - Experiencias Premium</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js?render=TU_SITE_KEY" async defer></script>
+    <style>
+        .section { scroll-margin-top: 80px; }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -25,76 +27,44 @@
     </header>
 
     <main>
-        <!-- Sección de Inicio -->
         <section id="inicio" class="section">
-            <div class="section-content">
-                <h2>Bienvenidos a Harmonia Tours</h2>
-                <p>En <strong>Harmonia Tours</strong>, ofrecemos más que solo viajes; creamos experiencias de lujo que combinan confort, exclusividad y autenticidad. Desde traslados privados en vehículos de alta gama hasta actividades personalizadas en los destinos más exclusivos de México, estamos aquí para hacer de tu viaje una vivencia inolvidable.</p>
-                <p>Viaja con nosotros a los destinos más codiciados, como Cancún, Los Cabos y Puerto Vallarta, y disfruta de la calidad premium en cada detalle. Nuestros servicios están diseñados para aquellos que buscan lo mejor en cada momento de su viaje.</p>
-            </div>
+            <h2>Bienvenidos a Harmonia Tours</h2>
+            <p>Experiencias de lujo en Cancún, Los Cabos y Puerto Vallarta.</p>
         </section>
 
-        <!-- Sección de Experiencias -->
-        <section id="experiencias" class="section experiences">
-            <div class="section-content">
-                <h2>Experiencias Exclusivas</h2>
-                <p>Imagina disfrutar de un paseo privado en yate por las aguas cristalinas de Cancún, o explorar los encantos culturales de Los Cabos con un guía privado. En Harmonia Tours, nos especializamos en ofrecer experiencias personalizadas que superan tus expectativas. Ya sea para una escapada romántica, una luna de miel de lujo o unas vacaciones familiares, tenemos opciones pensadas para ti.</p>
-                <ul>
-                    <li><strong>Paseos Privados en Yate</strong> – Navega por las costas más impresionantes con total privacidad y lujo.</li>
-                    <li><strong>Experiencias Gastronómicas Exclusivas</strong> – Disfruta de la gastronomía mexicana con un chef privado en un entorno exclusivo.</li>
-                    <li><strong>Aventura y Relajación</strong> – Desde recorridos en ATV hasta días de spa privado, personalizamos tu experiencia según tus gustos.</li>
-                </ul>
-                <p>Déjanos diseñar para ti el viaje de tus sueños. Si buscas algo diferente, exclusivo y a tu medida, Harmonia Tours es tu opción perfecta.</p>
-            </div>
+        <section id="experiencias" class="section">
+            <h2>Experiencias Exclusivas</h2>
+            <p>Desde paseos privados en yate hasta cenas con chef privado.</p>
         </section>
 
-        <!-- Sección de Destinos -->
-        <section id="destinos" class="section destinations">
-            <div class="section-content">
-                <h2>Destinos de Lujo</h2>
-                <p>Viaja a los destinos más deseados de México con un enfoque en el lujo y el confort. Ofrecemos traslados privados, hospedaje en resorts exclusivos y actividades personalizadas en las siguientes ubicaciones premium:</p>
-                <ul>
-                    <li><strong>Cancún</strong> – Conocido por sus playas de arena blanca, lujosos resorts y actividades acuáticas únicas.</li>
-                    <li><strong>Los Cabos</strong> – Un destino donde el desierto se encuentra con el mar, ofreciendo elegancia, serenidad y aventuras exclusivas.</li>
-                    <li><strong>Puerto Vallarta</strong> – El destino perfecto para quienes buscan un equilibrio entre cultura, naturaleza y lujo en la costa del Pacífico.</li>
-                </ul>
-                <p>Cada uno de estos destinos ha sido seleccionado cuidadosamente para ofrecerte lo mejor en términos de lujo, accesibilidad y actividades únicas que no encontrarás en ningún otro lugar.</p>
-            </div>
+        <section id="destinos" class="section">
+            <h2>Destinos de Lujo</h2>
+            <p>Cancún, Los Cabos y Puerto Vallarta con un enfoque en el confort.</p>
         </section>
 
-        <!-- Sección de Contacto -->
-        <section id="contacto" class="section contact">
-            <div class="contact-wrapper" data-aos="fade-up">
-                <h2 class="section-title">✈️ Comienza tu Aventura</h2>
-                <p class="section-description">Completa el siguiente formulario para obtener más información sobre nuestras experiencias premium. Nos encantaría ayudarte a planificar tu próximo viaje exclusivo.</p>
-                <form class="contact-form" action="contact.php" method="POST">
-                    <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-                    <div class="form-group">
-                        <input type="text" name="nombre" placeholder="Nombre completo" required>
-                        <input type="email" name="email" placeholder="Correo electrónico" required>
-                    </div>
-                    <textarea name="mensaje" placeholder="Describe tu experiencia ideal..." rows="6" required></textarea>
-                    <button type="submit" class="submit-button">Enviar Consulta</button>
-                </form>
-            </div>
+        <section id="contacto" class="section">
+            <h2>✈️ Comienza tu Aventura</h2>
+            <p>Completa el formulario para más información.</p>
+            <form class="contact-form" action="contact.php" method="POST">
+                <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                <div class="form-group">
+                    <input type="text" name="nombre" placeholder="Nombre completo" required>
+                    <input type="email" name="email" placeholder="Correo electrónico" required>
+                </div>
+                <textarea name="mensaje" placeholder="Describe tu experiencia ideal..." rows="6" required></textarea>
+                <button type="submit" class="submit-button">Enviar Consulta</button>
+            </form>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p class="copyright">&copy; 2024 Harmonia Tours. Todos los derechos reservados.</p>
-            <nav class="legal-links">
-                <a href="privacidad.html">Privacidad</a>
-                <a href="terminos.html">Términos y Condiciones</a>
-            </nav>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/+529981901967" class="whatsapp-float" target="_blank" rel="noopener">
-        <img src="assets/images/whatsapp-icon.svg" alt="WhatsApp" width="32" height="32">
-    </a>
-
-    <script src="js/script.js"></script>
-    <script src="js/recaptcha.js"></script>
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
 </body>
 </html>
